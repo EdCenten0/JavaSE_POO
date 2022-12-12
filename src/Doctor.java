@@ -1,5 +1,5 @@
 public class Doctor {
-    private int id;
+    private static int id = 0;
     private String name;
     private String speciality;
 
@@ -10,7 +10,7 @@ public class Doctor {
     }
 
     public Doctor() {
-
+        id++;
     }
 
     public int getId() {
@@ -37,7 +37,11 @@ public class Doctor {
         this.speciality = speciality;
     }
 
-    public void Showname(){
-        System.out.println(name);
+    public void showName(){
+        System.out.println(this.getName());
+    }
+
+    public void showID(){
+        System.out.println("ID" + this.getId());
     }
 }
