@@ -16,6 +16,7 @@ public class Main {
         doctorYo.showID();
 
         UiMenu.showMenu();
+        System.out.println("Hola");
     }
 
 
