@@ -1,12 +1,17 @@
 public class Doctor {
     private static int id = 0;
+    private String email;
     private String name;
     private String speciality;
 
+
+
     public Doctor(int id, String name, String speciality) {
-        this.id = id;
+        id++;
         this.name = name;
         this.speciality = speciality;
+
+
     }
 
     public Doctor() {
@@ -43,5 +48,13 @@ public class Doctor {
 
     public void showID(){
         System.out.println("ID" + this.getId());
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

@@ -1,22 +1,22 @@
-import javax.print.Doc;
+import static ui.UiMenu.*;
 
-import java.util.Scanner;
-
-import static java.lang.Math.*;
 public class Main {
     public static void main(String[] args) {
-        Doctor myDoctor = new Doctor();
-        myDoctor.setName("Juan");
-        myDoctor.showName();
-        myDoctor.showID();
+
+
+//        showMenu();
+
+        Patient patient = new Patient("Carlos", "cchavarria");
+        patient.setWeight(10.9);
+        patient.setPhoneNumber("12345678");
+
+        System.out.println(patient.getWeight() + "\n" + patient.getPhoneNumber() );
 
 
 
-        Doctor doctorYo = new Doctor();
-        doctorYo.showID();
 
-        UiMenu.showMenu();
-        System.out.println("Hola");
+
+
     }
 
 
