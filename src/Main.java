@@ -1,3 +1,5 @@
+import java.util.Date;
+
 import static ui.UiMenu.*;
 
 public class Main {
@@ -6,14 +8,18 @@ public class Main {
 
 //        showMenu();
 
-        Patient patient = new Patient("Carlos", "cchavarria");
-        patient.setWeight(10.9);
-        patient.setPhoneNumber("12345678");
+        Doctor doctor = new Doctor("Carlos", "cchavarria", "Ortopedista");
+        System.out.println(doctor);
 
-        System.out.println(patient.getWeight() + "\n" + patient.getPhoneNumber() );
-
-
-
+        Patient carlos = new Patient();
+        carlos.setPhoneNumber("57628049");
+        carlos.setBlood("O+");
+        carlos.setAddress("Jinotega");
+        carlos.setWeight(40.0);
+        carlos.setEmail("cchavarriacenteno8@gmail.com");
+        carlos.setBirthday("30-03-2005");
+        carlos.setHeight(1.70);
+        System.out.println(carlos);
 
 
 

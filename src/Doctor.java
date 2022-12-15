@@ -1,38 +1,25 @@
-public class Doctor {
-    private static int id = 0;
-    private String email;
-    private String name;
+import java.util.ArrayList;
+import java.util.Date;
+
+public class Doctor extends User {
+
     private String speciality;
 
 
 
-    public Doctor(int id, String name, String speciality) {
-        id++;
-        this.name = name;
+    public Doctor(String name,String email ,String speciality) {
+        super(name, email);
         this.speciality = speciality;
 
 
     }
 
     public Doctor() {
-        id++;
+
     }
 
-    public int getId() {
-        return id;
-    }
 
-    public void setId(int id) {
-        this.id = id;
-    }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public String getSpeciality() {
         return speciality;
@@ -42,19 +29,64 @@ public class Doctor {
         this.speciality = speciality;
     }
 
-    public void showName(){
-        System.out.println(this.getName());
+
+
+    ArrayList<AvaibleAppointment> avaibleAppointments = new ArrayList<>();
+    public void addAvaibleAppointent(Date date, String time){
+        avaibleAppointments.add(new AvaibleAppointment(date,time));
     }
 
-    public void showID(){
-        System.out.println("ID" + this.getId());
+    public ArrayList<AvaibleAppointment> getAvaibleAppointments(){
+        return avaibleAppointments;
     }
 
-    public String getEmail() {
-        return email;
+    @Override
+    public String toString() {
+        return super.toString() +"\nDoctor{" +
+                "speciality='" + this.getSpeciality() + '\'' +
+                ", avaibleAppointments=" + avaibleAppointments.toString() +
+                '}';
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public static class AvaibleAppointment{
+        private int id;
+        private Date date;
+        private String time;
+
+
+        public AvaibleAppointment(Date date, String time) {
+
+            this.date = date;
+            this.time = time;
+        }
+
+        public int getId() {
+            return id;
+        }
+
+        public void setId(int id) {
+            this.id = id;
+        }
+
+        public Date getDate() {
+            return date;
+        }
+
+        public void setDate(Date date) {
+            this.date = date;
+        }
+
+        public String getTime() {
+            return time;
+        }
+
+        public void setTime(String time) {
+            this.time = time;
+        }
+
+        @Override
+        public String toString() {
+            return "Avaible Appointments \n Date: " +  this.getDate() + "\nTime: " + this.getTime();
+        }
     }
 }
