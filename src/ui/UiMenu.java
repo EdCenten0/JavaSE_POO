@@ -13,8 +13,8 @@ public class UiMenu {
 
         int response = 0;
         do {
-            System.out.println("1. Doctor");
-            System.out.println("2. Patient");
+            System.out.println("1. models.Doctor");
+            System.out.println("2. models.Patient");
             System.out.println("0. Salir");
 
             Scanner sc = new Scanner(System.in);
@@ -22,7 +22,7 @@ public class UiMenu {
 
             switch (response){
                 case 1:
-                    System.out.println("Doctor");
+                    System.out.println("models.Doctor");
                     break;
                 case 2:
                     response = 0;
@@ -42,7 +42,7 @@ public class UiMenu {
         int response = 0;
         do {
             System.out.println("\n\n");
-            System.out.println("Patient");
+            System.out.println("models.Patient");
             System.out.println("1. Book an appointment");
             System.out.println("2. My appointments");
             System.out.println("0. Return");

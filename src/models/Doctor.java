@@ -1,3 +1,7 @@
+package models;
+
+import models.User;
+
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -42,10 +46,16 @@ public class Doctor extends User {
 
     @Override
     public String toString() {
-        return super.toString() +"\nDoctor{" +
+        return super.toString() +"\nmodels.Doctor{" +
                 "speciality='" + this.getSpeciality() + '\'' +
                 ", avaibleAppointments=" + avaibleAppointments.toString() +
                 '}';
+    }
+
+    @Override
+    public void showDataUser() {
+        System.out.println("Empleado del Hospital: Cruz roja");
+        System.out.println("Departamento: Oncologia");
     }
 
     public static class AvaibleAppointment{

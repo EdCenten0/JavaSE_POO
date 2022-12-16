@@ -1,4 +1,6 @@
-public class User {
+package models;
+
+public abstract class User {
     private int id;
     private String name;
     private String email;
@@ -62,7 +64,9 @@ public class User {
 
     @Override
     public String toString() {
-        return "User: " + this.getName() + ", Email: " +this.getEmail() +
+        return "models.User: " + this.getName() + ", Email: " +this.getEmail() +
                 "\nAddress: " + this.getAddress() + ".Phone: " + this.getPhoneNumber();
     }
+
+    public abstract void showDataUser();
 }

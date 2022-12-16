@@ -1,3 +1,5 @@
+package models;
+
 public class Patient extends User {
 
     private String Birthday;
@@ -49,5 +51,11 @@ public class Patient extends User {
     public String toString() {
         return super.toString() + "\nAge: " + this.getBirthday() + "\nWeight: " + this.getWeight()
                 + "\nHeight: " + this.getHeight() + "\nBlood: " + this.getBlood();
+    }
+
+    @Override
+    public void showDataUser() {
+        System.out.println("Paciente");
+        System.out.println("Historial completo desde nacimiento");
     }
 }
