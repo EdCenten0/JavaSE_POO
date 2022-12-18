@@ -3,17 +3,14 @@ package ui;
 import models.Doctor;
 import models.Patient;
 
-import javax.print.Doc;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class UiMenu {
-    public static final String[] MONTHS ={"Enero", "Febrero", "Marzo", "Abril",
-                                        "Mayo", "Junio", "Julio", "Agosto",
-                                        "Septiembre", "Octubre", "Noviembre", "Diciembre"};
 
+    public static final String[] MONTHS = {"Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"};
     public static Doctor doctorLogged;
-    public static Patient patientLogged;
+    public static Patient patinetLogged;
 
     public static void showMenu(){
         System.out.println("Welcome to My Appointments");
@@ -35,10 +32,8 @@ public class UiMenu {
                     authUser(1);
                     break;
                 case 2:
-                    authUser(2);
                     response = 0;
-                    showPatientMenu();
-
+                    authUser(2);
                     break;
                 case 0:
                     System.out.println("Thank you for you visit");
@@ -49,51 +44,57 @@ public class UiMenu {
         }while (response != 0);
     }
 
-    public static void authUser(int userType){
-        //userType = Doctor
+    private static void authUser(int userType){
+        //userType = 1 Doctor
         //userType = 2 Patient
 
         ArrayList<Doctor> doctors = new ArrayList<>();
-        doctors.add(new Doctor("Carlos Eduardo", "cchavarriacenteno8@gmail.com"));
-        doctors.add(new Doctor("Isabel Denisse", "aguilardenisse@gmail.com"));
-        doctors.add(new Doctor("Francisco De Jesus", "chicoymelendez@gmail.com"));
+        doctors.add(new Doctor("Alejandro Martínez", "alejandro@mail.com"));
+        doctors.add(new Doctor("Karen Sosa", "kare@mail.com"));
+        doctors.add(new Doctor("Rocío Gómez", "rocio@mail.com"));
 
         ArrayList<Patient> patients = new ArrayList<>();
-        patients.add(new Patient("Elsner Ortega", "elsnergo@gmail.com"));
-        patients.add(new Patient("Alejandro Duran", "duranale@gmail.com"));
-        patients.add(new Patient("Katerine Alaniz", "katerinalaniz@gmail.com"));
+        patients.add(new Patient("Anahí Salgado", "anahi@mail.com"));
+        patients.add(new Patient("Roberto Rodríguez", "roberto@mail.com"));
+        patients.add(new Patient("Carlos Sánchez", "carlos@mail.com"));
+
 
         boolean emailCorrect = false;
         do {
             System.out.println("Insert your email: [a@a.com]");
             Scanner sc = new Scanner(System.in);
             String email = sc.nextLine();
-
             if (userType == 1){
-                for(Doctor d: doctors){
-                    if (d.getEmail().equals(email));
-                    emailCorrect = true;
-                    //Obtener el usuario loggeado
-                    doctorLogged = d;
-                    //showDoctor menu
-                }
-            }else{
-                for(Patient p: patients){
-                    if (p.getEmail().equals(email));
-                    emailCorrect = true;
-                    //Obtener el usuario loggeado
-                    patientLogged = p;
-                    //showPatient menu
+                for (Doctor d: doctors){
+                    if (d.getEmail().equals(email)){
+                        emailCorrect = true;
+                        //Obtener el usuario logeado
+                        doctorLogged = d;
+                        UIDoctorMenu.showDoctorMenu();
+                    }
                 }
             }
 
-        }while(!emailCorrect);
+            if (userType == 2){
+                for (Patient p: patients){
+                    if (p.getEmail().equals(email)){
+                        emailCorrect = true;
+                        patinetLogged = p;
+                        UIPatientMenu.showPatientMenu();
+                    }
+                }
+            }
+
+
+        }while (!emailCorrect);
+
     }
-    public static void showPatientMenu(){
+
+    static void showPatientMenu(){
         int response = 0;
         do {
             System.out.println("\n\n");
-            System.out.println("models.Patient");
+            System.out.println("model.Patient");
             System.out.println("1. Book an appointment");
             System.out.println("2. My appointments");
             System.out.println("0. Return");
@@ -104,11 +105,9 @@ public class UiMenu {
             switch (response){
                 case 1:
                     System.out.println("::Book an appointment");
-                    for(int i = 0; i < 3; i++){
-                        System.out.println((i + 1) + "." + MONTHS[i]);
-
-                }
-
+                    for (int i = 1; i < 4; i++) {
+                        System.out.println(i +". " + MONTHS[i]);
+                    }
                     break;
                 case 2:
                     System.out.println("::My appointments");
